@@ -57,13 +57,10 @@ const Options = (): JSX.Element => {
     <div>
       <Space direction="vertical" size="middle" style={{ display: 'flex' }}>
         <Row justify="center">
-          <Col span={24}>
-            <div style={{ textAlign: 'center' }}>
-              <h1>Hypercrx</h1>
-              <sub>{`version ${version}`}</sub>
-              <br />
-            </div>
-          </Col>
+          <Space direction="vertical" style={{ textAlign: 'center' }}>
+            <h1>Hypercrx</h1>
+            <sub>{`version ${version}`}</sub>
+          </Space>
         </Row>
 
         <Row
