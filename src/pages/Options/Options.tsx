@@ -1,11 +1,5 @@
 import React, { useState, useEffect } from 'react';
-<<<<<<< HEAD
 import { Checkbox, Radio, Space, Row, Col } from 'antd'; // 引入 Grid 组件
-=======
-import { Stack } from 'office-ui-fabric-react';
-import { Checkbox, Radio, Space } from 'antd';
-
->>>>>>> d3997abd2cd74dc043b27ae93719f38a609c8119
 import { importedFeatures } from '../../../README.md';
 import optionsStorage, { HypercrxOptions } from '../../options-storage';
 import getMessageByLocale from '../../helpers/get-message-by-locale';
@@ -42,7 +36,6 @@ const Options = (): JSX.Element => {
 
   function buildFeatureCheckbox(name: FeatureName, isEnabled: boolean) {
     return (
-<<<<<<< HEAD
       <Col span={24}>
         <Checkbox
           key={name}
@@ -57,23 +50,10 @@ const Options = (): JSX.Element => {
           {name}
         </Checkbox>
       </Col>
-=======
-      <Checkbox
-        key={name}
-        defaultChecked={isEnabled}
-        onChange={async (e) => {
-          await optionsStorage.set({ [`hypercrx-${name}`]: e.target.checked });
-          setOptions(await optionsStorage.getAll());
-        }}
-      >
-        {name}
-      </Checkbox>
->>>>>>> d3997abd2cd74dc043b27ae93719f38a609c8119
     );
   }
 
   return (
-<<<<<<< HEAD
     <div>
       <Space direction="vertical" size="middle" style={{ display: 'flex' }}>
         <Row justify="center">
@@ -208,103 +188,6 @@ const Options = (): JSX.Element => {
         </Row>
       </Space>
     </div>
-=======
-    <Stack>
-      <Stack horizontalAlign="center" style={stacksStyleOptions.headerStack}>
-        <h1>Hypercrx</h1>
-        <sub>{`version ${version}`}</sub>
-      </Stack>
-      <Stack
-        horizontalAlign="center"
-        style={stacksStyleOptions.mainStack}
-        tokens={{
-          childrenGap: 30,
-        }}
-      >
-        <Stack.Item className="Box">
-          <Stack.Item className="Box-header">
-            <h2 className="Box-title">
-              {getMessageByLocale('options_locale_title', options.locale)}
-            </h2>
-            <TooltipTrigger
-              content={getMessageByLocale(
-                'options_locale_toolTip',
-                options.locale
-              )}
-            />
-          </Stack.Item>
-          <Stack style={stacksStyleOptions.settingStack}>
-            <p>
-              {getMessageByLocale('options_locale_toolTip', options.locale)} :
-            </p>
-            <Radio.Group
-              defaultValue={options.locale}
-              onChange={async (e) => {
-                await optionsStorage.set({ locale: e.target.value });
-                setOptions(await optionsStorage.getAll());
-              }}
-            >
-              <Space direction="vertical">
-                <Radio value={'en'}>English</Radio>
-                <Radio value={'zh_CN'}>简体中文 (Simplified Chinese)</Radio>
-              </Space>
-            </Radio.Group>
-          </Stack>
-        </Stack.Item>
-        <Stack.Item className="Box">
-          <Stack.Item className="Box-header">
-            <h2 className="Box-title">
-              {getMessageByLocale('options_components_title', options.locale)}
-            </h2>
-            <TooltipTrigger
-              content={getMessageByLocale(
-                'options_components_toolTip',
-                options.locale
-              )}
-            />
-          </Stack.Item>
-          <Stack
-            style={stacksStyleOptions.settingStack}
-            tokens={{
-              childrenGap: 10,
-            }}
-          >
-            <p>
-              {getMessageByLocale('options_components_toolTip', options.locale)}{' '}
-              :
-            </p>
-            {importedFeatures.map((name: FeatureName) => {
-              return buildFeatureCheckbox(name, options[`hypercrx-${name}`]);
-            })}
-          </Stack>
-        </Stack.Item>
-        <Stack.Item className="Box">
-          <Stack.Item className="Box-header">
-            <h2 className="Box-title">
-              {getMessageByLocale('options_about_title', options.locale)}
-            </h2>
-            <TooltipTrigger
-              content={getMessageByLocale(
-                'options_about_toolTip',
-                options.locale
-              )}
-            />
-          </Stack.Item>
-          <Stack style={stacksStyleOptions.settingStack}>
-            <p>
-              {getMessageByLocale('options_about_description', options.locale)}
-            </p>
-            <p>
-              GitHub:{' '}
-              <a href={HYPERCRX_GITHUB} target="_blank">
-                {HYPERCRX_GITHUB}
-              </a>
-            </p>
-          </Stack>
-        </Stack.Item>
-      </Stack>
-    </Stack>
->>>>>>> d3997abd2cd74dc043b27ae93719f38a609c8119
   );
 };
 
